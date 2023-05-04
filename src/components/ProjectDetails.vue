@@ -3,12 +3,15 @@
         <template v-if="project">
             <h1>{{ project.titolo }}</h1>
             <p>{{ project.descrizione }}</p>
+            <p><strong>Tecnologie utilizzate:</strong> {{ project.tecnologie }}</p>
         </template>
         <template v-else>
             <p>Caricamento in corso...</p>
         </template>
+        <p>Questa è la pagina di dettaglio del progetto con ID {{ $route.params.id }}</p>
     </div>
 </template>
+
 
   
 <script>

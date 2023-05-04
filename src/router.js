@@ -2,8 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from './views/Home.vue'
 import Portfolio from './views/Portfolio.vue'
 import About from './views/About.vue'
-import ProjectDetails from './components/ProjectDetails.vue' // importa il nuovo componente
-
+import ProjectDetails from './components/ProjectDetails.vue'
 const routes = [
     {
         path: '/',
@@ -21,7 +20,7 @@ const routes = [
         component: About
     },
     {
-        path: '/projects/:id', // aggiungi la nuova rotta parametrica
+        path: '/projects/:id',
         name: 'ProjectDetails',
         component: ProjectDetails,
 

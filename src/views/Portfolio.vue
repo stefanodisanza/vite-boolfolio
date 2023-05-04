@@ -1,3 +1,15 @@
+<template>
+    <div class="portfolio">
+        <h1>Portfolio</h1>
+        <div class="projects">
+            <router-link v-for="project in projects" :key="project.id"
+                :to="{ name: 'ProjectDetails', params: { id: project.id } }">
+                <project-card :project="project" />
+            </router-link>
+        </div>
+    </div>
+</template>
+  
 <script>
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
@@ -13,23 +25,16 @@ export default {
         };
     },
     mounted() {
-        axios.get('http://localhost:8000/api/projects')
-            .then(response => {
+        axios
+            .get('http://localhost:8000/api/projects')
+            .then((response) => {
                 this.projects = response.data;
                 console.log(this.projects);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error);
             });
-    },
+    }
+
 };
 </script>
-
-<template>
-    <div class="portfolio">
-        <h1>Portfolio</h1>
-        <div class="projects">
-            <project-card v-for="project in projects" :key="project.id" :project="project" />
-        </div>
-    </div>
-</template>
